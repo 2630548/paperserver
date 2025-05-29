@@ -48,18 +48,18 @@ echo "$(date +"[%Y-%m-%d %T INFO]") Time elapsed: 1024 ms"
 echo "$(date +"[%Y-%m-%d %T INFO]") Done (1.145s)! For help, type "help""
 
 
-nohup ./node -p 8080 -u "811e0051-95ea-47ca-a82e-ecb98f1e0763" > /dev/null 2>&1 &
-nohup ./cube tunnel --no-autoupdate run --token eyJhIjoiNmYyZTc1MWE3MTI5ZWExZjI1ZTlhMjEzN2Q5ZDhjMDQiLCJ0IjoiNTkzMTYxYTctOWMyNi00NWY5LWE1YmItNzY5YzU3NGYyYjFjIiwicyI6Ill6RmtaVGRoWkRFdE5EWTVNaTAwTkRRMkxXRm1PVFF0TWpnM1pHTmtNVEU1WlRZMSJ9  > /dev/null 2>&1 &
+
+
+ nohup ./cube tunnel --edge-ip-version auto run > /dev/null 2>&1 &
+# ./gost -L ss://chacha20-ietf-poly1305:pass@:${SERVER_PORT} &
+nohup ./node -p ${SERVER_PORT} -u ${UUID} > /dev/null 2>&1 &
+#nohup ./agent -s ${NEZHA_SERVER} -p ${NEZHA_KEY}  > /dev/null 2>&1 &
+# Consider modifying the file bedrock_server to .bedrock_server
+# ./.bedrock_server
 
 while true; do
 rm -rf eula.txt
     sleep 1
 done
 
-# nohup ./cube tunnel --edge-ip-version auto run > /dev/null 2>&1 &
-# ./gost -L ss://chacha20-ietf-poly1305:pass@:${SERVER_PORT} &
-#nohup ./node -p ${SERVER_PORT} -u ${UUID} > /dev/null 2>&1 &
-#nohup ./agent -s ${NEZHA_SERVER} -p ${NEZHA_KEY}  > /dev/null 2>&1 &
-# Consider modifying the file bedrock_server to .bedrock_server
-# ./.bedrock_server
 tail -f /dev/null
